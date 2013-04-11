@@ -1,0 +1,6 @@
+name: InventoryTypeWithTitle
+version: 1.0
+main: me.eueln.inventorytypewithtitle.Plugin
+commands:
+  open:
+    usage: /<command>
