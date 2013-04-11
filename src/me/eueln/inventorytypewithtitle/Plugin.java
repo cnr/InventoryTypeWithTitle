@@ -28,31 +28,11 @@ public class Plugin extends JavaPlugin {
             return true;
         }
 
-        InventoryType type;
-        switch (args[0].toLowerCase()) {
-            case "brewing":
-                type = InventoryType.BREWING;
-                break;
+        InventoryType type = InventoryType.valueOf(args[0].toUpperCase());
 
-            case "chest":
-                type = InventoryType.CHEST;
-                break;
-
-            case "enchanting":
-                type = InventoryType.ENCHANTING;
-                break;
-
-            case "furnace":
-                type = InventoryType.FURNACE;
-                break;
-
-            case "dispenser":
-                type = InventoryType.DISPENSER;
-                break;
-
-            default:
-                player.sendMessage(ChatColor.RED + "Invalid type: " + args[0]);
-                return true;
+        if (type == null) {
+            player.sendMessage(ChatColor.RED + "Invalid type: " + args[0]);
+            return true;
         }
 
         Inventory inv = Bukkit.createInventory(null, type, "My Awesome " + type.getDefaultTitle());
